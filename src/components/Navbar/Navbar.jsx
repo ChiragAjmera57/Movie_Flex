@@ -59,8 +59,8 @@ const handleclosecross = () =>{
         </div>
         <div className="rightcontent" onClick={handleclosecross}>
         <ul>
-            <Link className='link' to='/explore/movies' ><li>movies</li></Link>
-            <Link className='link' to='/explore/series'><li>Tv shows</li></Link> 
+            <Link className='link' to={`/explore/movie`} ><li>movies</li></Link>
+            <Link className='link' to={`/explore/tv`}><li>Tv shows</li></Link> 
               <AiOutlineSearch className='link' id='searchlink' size="20px" onClick={closeinput} />
         </ul>
         </div>

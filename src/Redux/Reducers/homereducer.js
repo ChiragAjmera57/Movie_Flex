@@ -7,6 +7,7 @@ let initstate = {
 export const homereducer = (state=initstate,{type,paylod}) => {
 
     switch (type) {
+       
         
         default:
             return state

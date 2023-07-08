@@ -1,0 +1,37 @@
+@import "../../../minix.scss";
+.filterbox{
+    margin-top: 10%;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content:flex-end;
+    width: 88%;
+}
+.multibox{
+    width: 30%;
+    margin-right: 12px;
+    
+}
+
+.singlebox{
+    width: 20%;
+}
+#searchbox{
+  
+   
+    margin-left: 75px;
+    margin-top: 19px;
+    @include sm {
+        margin-left: 15px;
+    }
+    h1{
+        margin-bottom: 19px;
+        text-transform: capitalize;
+        font-size: 19px;
+        color:  white;
+        @include sm {
+            font-size: 15px;
+            color: rgb(123, 123, 123);
+        }
+    }
+
+}

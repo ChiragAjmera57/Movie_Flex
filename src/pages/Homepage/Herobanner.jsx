@@ -19,9 +19,7 @@ export default function Herobanner() {
         
     },[data])
     const handleenter = (e) => {
-        <Navigate to={`/search/${query}`}></Navigate>
-
-        if(e.key=='Enter'&&query.length>0){
+        if(e.key=='Enter'||e.target.name=="button"&&query.length>0){
             navigate(`/search/${query}`);
         }
     }
@@ -50,7 +48,7 @@ export default function Herobanner() {
                             onChange={(e) => setquery(e.target.value)}
                             onKeyUp={handleenter}
                         />
-                        <button>Search</button>
+                        <button name='button' onClick={handleenter}>Search</button>
                     </div>
                 </div>
             </Wrapper>
