@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import useFetch from '../../components/hooks/usefetch';
 import { fetchDataFromApi } from '../../utils/app';
 import { useDispatch, useSelector } from 'react-redux';
 import { searchdispatchdone, searchdispatchpending } from '../../Redux/actiontype';
 import Card from '../../components/carddesign/Card';
 import ContentWrapper from '../../components/wraper/Wrapper';
 import noresults from "../../assets/no-results.png"
-import { Grid, GridItem } from '@chakra-ui/react'
 import "./searchresult.scss"
 import { useLocation } from 'react-router-dom';
 import Sket from '../../components/skeleton/Sket';
-import Drop from '../../components/dropdown/Dropdown';
 
 export default function Searchresult() {
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   const query = useParams().query
   const [pageno , setpage] = useState(1)
   const dispatch = useDispatch()
@@ -26,6 +28,7 @@ const getdata = () => {
     const no_of_pages = res.total_pages
     const total_results = res.total_results
     dispatch(searchdispatchdone({data,query,no_of_pages,total_results}))
+    window.scrollTo(0, 0);
     
   })
   
@@ -69,7 +72,7 @@ console.log(state.loading);
                  
                   <div className='cssGrid' >
                           {
-                             state.data?.map((ele)=>{
+                             state.data?.map((ele,i)=>{
           
                               let rating = ele.vote_average?.toFixed(1);
                               return(
@@ -77,7 +80,7 @@ console.log(state.loading);
                                 
                                     <div key={ele.id} className='griditem'  >
                                       
-                                  <Card key={ele.id} genre={ele.genre_ids} title={ele.title} rating={rating} link={ele.poster_path} date={ele.release_date}/>
+                                  <Card id={ele.id} key={i} genre={ele.genre_ids} title={ele.title} rating={rating} link={ele.poster_path} date={ele.release_date}/>
                                   </div>
                               )
                               

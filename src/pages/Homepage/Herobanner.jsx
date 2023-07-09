@@ -34,13 +34,18 @@ export default function Herobanner() {
             )}
 
             <div className="opacity-layer"></div>
-            <Wrapper>
+            
                 <div className="heroBannerContent">
-                    <span className="title">Welcome.</span>
+                <Wrapper >
+                <span className="title">Welcome.</span>
+                <br />
                     <span className="subTitle">
                         Millions of movies, TV shows and people to discover.
                         Explore now.
                     </span>
+                </Wrapper>
+                    
+                    
                     <div className="searchInput">
                         <input
                             type="text"
@@ -51,7 +56,7 @@ export default function Herobanner() {
                         <button name='button' onClick={handleenter}>Search</button>
                     </div>
                 </div>
-            </Wrapper>
+            
             
             </div>
            

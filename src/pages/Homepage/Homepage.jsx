@@ -1,16 +1,18 @@
 import React from 'react'
 import Herobanner from './Herobanner'
-import Card from '../../components/carddesign/Card'
 import './homepage.scss'
-import Sket from '../../components/skeleton/Sket'
-import Drop from '../../components/dropdown/Dropdown'
-import ContentWrapper from '../../components/wraper/Wrapper'
+import Movieexplore from '../explore/Movieexplore'
+import Trending from './Trending'
+import Popular from './Popular'
+import Upcoming from './Upcoming'
 
 export default function Homepage() {
   return (
     <>    <div>
       <Herobanner />
-      
+      <Trending />
+      <Popular />
+      <Upcoming />
     </div>
     </>
 

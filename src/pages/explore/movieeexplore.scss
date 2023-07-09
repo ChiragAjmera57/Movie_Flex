@@ -5,15 +5,28 @@
     display: flex;
     justify-content:flex-end;
     width: 88%;
+    @include sm {
+        margin-top: 20%;
+        justify-content:space-between;
+        font-size: 12px;
+        width: 100%;
+
+    }
 }
 .multibox{
     width: 30%;
     margin-right: 12px;
+    @include sm {
+        width: 60%;
+    }
     
 }
 
 .singlebox{
     width: 20%;
+    @include sm {
+        width: 40%;
+    }
 }
 #searchbox{
   

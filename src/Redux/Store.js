@@ -1,11 +1,14 @@
 import { combineReducers, legacy_createStore } from "@reduxjs/toolkit";
-import { homereducer } from "./Reducers/homereducer";
 import { searchresult } from "./Reducers/searchresult";
 import { exploremedia } from "./Reducers/explorereducer";
+import { popularhomereducer, trendhomereducer, upcominghomereducer } from "./Reducers/homereducer";
 
 const reducedReducer = combineReducers(
     {
-        home:homereducer,
+        trendhome:trendhomereducer,
+        pophome:popularhomereducer,
+        uphome:upcominghomereducer,
+       
         searchresult:searchresult,
         exploremedia:exploremedia
         

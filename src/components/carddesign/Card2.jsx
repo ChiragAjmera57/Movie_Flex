@@ -4,7 +4,10 @@ import Img from "../lazyimg/Img";
 import ContentWrapper from "../wraper/Wrapper";
 import Genre from "../genre/Genre";
 import pimage from "../../assets/no-poster.png";
-export default function Card2({ genre, name, rating, link, firstdate }) {
+import { useNavigate } from "react-router-dom";
+import { CircularProgress, CircularProgressLabel } from "@chakra-ui/react";
+export default function Card2({ genre, name, rating, link, firstdate,id }) {
+  const navigate = useNavigate();
   const genre_value = {
     10759: "Action & Adventure",
 16: "Animation",
@@ -41,12 +44,16 @@ export default function Card2({ genre, name, rating, link, firstdate }) {
   let genre_length = genre.length;
   const g1 = genre_value[genre[0]];
   const g2 = genre_value[genre[1]];
-  var st = firstdate.split("-");
-  const month = months[st[1]];
+  const todetailpage = (id) =>{
+ 
+    navigate(`/details/${id}`)
+   
+   }
+
   return (
-    <ContentWrapper>
+
       <div className="card">
-        <div className="imagebox">
+        <div className="imagebox" onClick={()=>{todetailpage(id)}}>
           {link ? (
             <Img
               src={`https://image.tmdb.org/t/p/original/${link}`}
@@ -57,7 +64,11 @@ export default function Card2({ genre, name, rating, link, firstdate }) {
           )}
         </div>
         <div className="onbox">
-          <div className="rating">{rating}</div>
+          <div className="rating">
+          <CircularProgress value={rating*10} color={rating>5.5?"green":"orange"}>
+  <CircularProgressLabel color="white">{rating}</CircularProgressLabel>
+</CircularProgress>
+          </div>
           {genre_length > 1 ? (
             <>
               <div id="genre1">
@@ -75,10 +86,10 @@ export default function Card2({ genre, name, rating, link, firstdate }) {
             <p>{name}</p>
           </div>
           <div className="releasedata">
-            {firstdate ? <p>{`${month} ${st[1]}, ${st[0]}`}</p> : <></>}
+            {firstdate ? <p>{firstdate}</p> : <></>}
           </div>
         </div>
       </div>
-    </ContentWrapper>
+
   );
 }
