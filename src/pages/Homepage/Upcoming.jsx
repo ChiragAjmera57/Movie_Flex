@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { fetchDataFromApi } from "../../utils/app";
 import { useDispatch, useSelector } from "react-redux";
 import {
-    pophomedispatchdone,
-    pophomedispatchpending,
     uphomedispatchdone,
     uphomedispatchpending,
   
@@ -29,8 +27,6 @@ export default function Upcoming() {
       window.scrollTo(0, 0);
     });
   };
-  const arr = state.data;
-  console.log(arr);
 
   useEffect(() => {
     getdata();
@@ -42,7 +38,7 @@ export default function Upcoming() {
         <span className="carouselTitle"></span>
        
     </ContentWrapper>
-    <Carousel data={arr} loading={state.loading} title={"Upcoming"} />
+    <Carousel data={state.data} loading={state.loading} title={"Upcoming"} />
 </div>
   );
 }

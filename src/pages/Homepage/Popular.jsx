@@ -12,7 +12,6 @@ import ContentWrapper from "../../components/wraper/Wrapper";
 
 export default function Popular() {
   const dispatch = useDispatch();
-  const [page,setpage] = useState(1)
   const state = useSelector((state) => state.pophome);
 
 
@@ -27,12 +26,10 @@ export default function Popular() {
       window.scrollTo(0, 0);
     });
   };
-  const arr = state.data;
-  console.log(arr);
 
   useEffect(() => {
     getdata();
-  }, [page]);
+  }, []);
  
   return (
     <div className="carouselSection">
@@ -40,7 +37,7 @@ export default function Popular() {
         <span className="carouselTitle"></span>
        
     </ContentWrapper>
-    <Carousel data={arr} loading={state.loading} title={"Popular"} />
+    <Carousel data={state.data} loading={state.loading} title={"Popular"} />
 </div>
   );
 }

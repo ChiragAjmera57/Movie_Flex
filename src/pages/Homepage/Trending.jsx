@@ -10,14 +10,13 @@ import ContentWrapper from "../../components/wraper/Wrapper";
 
 export default function Trending() {
   const dispatch = useDispatch();
-  const [page,setpage] = useState(1)
   const state = useSelector((state) => state.trendhome);
 
 
 
   const getdata = () => {
     dispatch(trendhomedispatchpending());
-    fetchDataFromApi(`trending/movie/week?include_adult=false&page=${page}`).then((res) => {
+    fetchDataFromApi(`trending/movie/week?include_adult=false`).then((res) => {
       const data = res.results;
       const no_of_pages = res.total_pages;
       const total_results = res.total_results;
@@ -25,12 +24,11 @@ export default function Trending() {
       window.scrollTo(0, 0);
     });
   };
-  const arr = state.data;
-  console.log(arr);
 
+console.log(state);
   useEffect(() => {
     getdata();
-  }, [page]);
+  }, []);
  
   return (
     <div className="carouselSection">
@@ -38,7 +36,7 @@ export default function Trending() {
         <span className="carouselTitle"></span>
        
     </ContentWrapper>
-    <Carousel data={arr} loading={state.loading} title={"Trending"} />
+    <Carousel data={state.data} loading={state.loading} title={"Trending"} />
 </div>
   );
 }

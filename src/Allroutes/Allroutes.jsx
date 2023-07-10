@@ -12,7 +12,7 @@ export default function () {
         <Route path='/' element={<Homepage />} ></Route>
         <Route path='/search/:query' element={<Searchresult />}></Route>
         <Route path='/explore/:mediatype' element={<Movieexplore />}></Route>
-        <Route path='/details/:id' element={<Details />}></Route>
+        <Route path='/details/:mediatype/:id' element={<Details />}></Route>
         <Route path='*' element={<Notfound />}></Route>
     </Routes>
   )

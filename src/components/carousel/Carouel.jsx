@@ -6,6 +6,7 @@ import {
 import "./carousel.scss";
 import ContentWrapper from "../wraper/Wrapper";
 import Card from "../carddesign/Card";
+import Sket from "../skeleton/Sket";
 
 const Carousel = ({ data, loading, title }) => {
   const carouselContainer = useRef();
@@ -38,23 +39,38 @@ const Carousel = ({ data, loading, title }) => {
         />
 
         <div className="carouselItems" ref={carouselContainer}>
-          {data?.map((ele, i) => {
-            let rating = ele.vote_average?.toFixed(1);
+      {loading?(<>
+      
+        <Sket />
+        <Sket />
+        <Sket />
+        <Sket />
+        <Sket />
+        <Sket />
+        <Sket />
+        <Sket /></>
+      ):(
+        data?.map((ele, i) => {
+          let rating = ele.vote_average?.toFixed(1);
 
-            return (
-              <ContentWrapper key={i}>
-                <Card
-                  id={ele.id}
-                  key={i}
-                  genre={ele.genre_ids}
-                  title={ele.title}
-                  rating={rating}
-                  link={ele.poster_path}
-                  date={ele.release_date}
-                />
-              </ContentWrapper>
-            );
-          })}
+          return (
+            <ContentWrapper key={i}>
+              <Card
+                id={ele.id}
+                key={i}
+                genre={ele.genre_ids}
+                title={ele.title}
+                rating={rating}
+                link={ele.poster_path}
+                date={ele.release_date}
+              />
+            </ContentWrapper>
+          );
+        })
+      )}
+              
+              
+          
         </div>
       </ContentWrapper>
     </div>

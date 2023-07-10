@@ -48,7 +48,7 @@ export default function Card({ genre, title, rating, link, date,id }) {
   const g2 = genre_value[genre[1]];
 const todetailpage = (id) =>{
  
- navigate(`/details/${id}`)
+ navigate(`/details/${`movie`}/${id}`)
 
 }
 
